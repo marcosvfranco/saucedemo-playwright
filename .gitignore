@@ -1,6 +1,9 @@
 test-results/
 playwright-report/
 
+# Auth state
+storageState.json
+
 # Logs
 logs
 *.log
