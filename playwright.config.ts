@@ -19,7 +19,7 @@ import { PlaywrightTestConfig, devices } from '@playwright/test';
 
   use: {
     baseURL: 'https://www.saucedemo.com',
-    headless: false,
+    headless: true,
     storageState: 'storageState.json',
     viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true,
