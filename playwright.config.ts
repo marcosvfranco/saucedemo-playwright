@@ -1,8 +1,6 @@
 // @ts-check
 import { PlaywrightTestConfig, devices } from '@playwright/test';
-// import { Options } from './configs/customTest';
-
-
+import 'dotenv/config'
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -19,7 +17,7 @@ import { PlaywrightTestConfig, devices } from '@playwright/test';
 
   use: {
     baseURL: 'https://www.saucedemo.com',
-    headless: true,
+    headless: (process.env.NOHEADLESS)? false : true,
     storageState: 'storageState.json',
     viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true,
@@ -27,7 +25,7 @@ import { PlaywrightTestConfig, devices } from '@playwright/test';
     screenshot: 'only-on-failure',
     trace: 'on',
     launchOptions: {
-      slowMo: 50,
+      slowMo: 200,
     },
   },
   testDir: 'tests',

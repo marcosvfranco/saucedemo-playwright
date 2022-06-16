@@ -4,6 +4,7 @@
   "description": "An E2E Test Automation Framework using Playwright",
   "main": "index.js",
   "scripts": {
+    "testNH": "NOHEADLESS=true npx playwright test",
     "test": "npx playwright test",
     "debug": "PWDEBUG=1 npm run test"
   },
@@ -23,6 +24,7 @@
     "@playwright/test": "^1.22.2",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
+    "dotenv": "^16.0.1",
     "eslint": "^8.16.0",
     "eslint-plugin-playwright": "^0.9.0",
     "playwright": "^1.22.2",
