@@ -7,7 +7,7 @@ test.describe('when open a page with basic auth', async () => {
 
     test.beforeEach(async ({ page }) => {
         await page.goto('');
-    })
+    });
 
     test('then the page should be displayed after the authentication', async ({ page }) => {
         await page.locator('#user-name').fill(username);
@@ -16,5 +16,5 @@ test.describe('when open a page with basic auth', async () => {
 
         await expect(await page.url()).toEqual('https://www.saucedemo.com/inventory.html');
         await expect(await page.locator('.header_secondary_container > span').textContent()).toEqual('Products');
-    })
-})
+    });
+});
