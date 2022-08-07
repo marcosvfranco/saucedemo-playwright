@@ -32,4 +32,11 @@ test.describe('when products page is loaded', async () => {
         test.fail();
     });
 
+    test('the Menu is displayed when clicking the menu button',async ({ page }) => {
+        await page.locator('#react-burger-menu-btn').click();
+        const hamburgerMenu = await page.locator('.bm-item-list');
+        await expect(hamburgerMenu).toBeVisible();
+        const menuItems = await hamburgerMenu.locator('a');
+        expect(await menuItems.allInnerTexts()).toEqual(['ALL ITEMS','ABOUT','LOGOUT','RESET APP STATE']);
+    });
 });
