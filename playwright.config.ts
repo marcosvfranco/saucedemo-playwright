@@ -20,7 +20,7 @@ const config: PlaywrightTestConfig = {
         storageState: 'storageState.json',
         viewport: { width: 1280, height: 720 },
         ignoreHTTPSErrors: true,
-        video: 'on-first-retry',
+        video: 'on',
         screenshot: 'only-on-failure',
         trace: 'on',
         launchOptions: {
@@ -32,8 +32,9 @@ const config: PlaywrightTestConfig = {
     reporter: process.env.CI ? [
         ['dot'],
         ['html', { open: 'never' }] 
-    ] : 'list',
-
+    ] : [['list'],
+        ['html']
+    ],
     workers: 4,
     /* Configure projects for major browsers */
     projects: [
