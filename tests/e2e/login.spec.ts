@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('when open a page with basic auth', async () => {
 
-    const username = 'standard_user';
+    const username = 'standard_user2';
     const password = 'secret_sauce';
 
     test.beforeEach(async ({ page }) => {
