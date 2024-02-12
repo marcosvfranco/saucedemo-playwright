@@ -5,38 +5,65 @@ test.describe('when products page is loaded', async () => {
         await page.goto('/inventory.html');
     });
 
-    test('then the products are displayed with their respective prices', async ({ page }) => {
-        await expect(await page.url()).toEqual('https://www.saucedemo.com/inventory.html');
-        await expect(await page.locator('.header_secondary_container > span').textContent()).toEqual('Products');
+    test('then the products are displayed with their respective prices', async ({
+        page,
+    }) => {
+        await expect(await page.url()).toEqual(
+            'https://www.saucedemo.com/inventory.html'
+        );
+        await expect(
+            await page
+                .locator('.header_secondary_container > span')
+                .textContent()
+        ).toEqual('Products');
 
-        const productNames = await page.locator('.inventory_item_name').allTextContents();
-        const productPricesRaw = await page.locator('.inventory_item_price').allTextContents();
+        const productNames = await page
+            .locator('.inventory_item_name')
+            .allTextContents();
+        const productPricesRaw = await page
+            .locator('.inventory_item_price')
+            .allTextContents();
 
-        await expect(productPricesRaw).toHaveLength(6);
+        await expect(productPricesRaw, 'custom message').toHaveLength(6);
         await expect(productNames).toHaveLength(6);
     });
 
-    test('then each product needs to have a price higher than 0', async ({ page }) => {
-        const productPricesRaw = await page.locator('.inventory_item_price').allTextContents();
+    test('then each product needs to have a price higher than 0', async ({
+        page,
+    }) => {
+        const productPricesRaw = await page
+            .locator('.inventory_item_price')
+            .allTextContents();
         productPricesRaw.forEach(async (item) => {
             const price = parseFloat(item.slice(1));
             await expect(price).toBeGreaterThan(0);
         });
     });
 
-    test('then each product needs to have name started with Sauce Labs', async ({ page }) => {
-        const productNames = await page.locator('.inventory_item_name').allTextContents();
+    test('then each product needs to have name started with Sauce Labs', async ({
+        page,
+    }) => {
+        const productNames = await page
+            .locator('.inventory_item_name')
+            .allTextContents();
         productNames.forEach(async (item) => {
             await expect(item.slice(0, 10)).toEqual('Sauce Labs');
         });
         test.fail();
     });
 
-    test('the Menu is displayed when clicking the menu button',async ({ page }) => {
+    test('the Menu is displayed when clicking the menu button', async ({
+        page,
+    }) => {
         await page.locator('#react-burger-menu-btn').click();
         const hamburgerMenu = await page.locator('.bm-item-list');
         await expect(hamburgerMenu).toBeVisible();
         const menuItems = await hamburgerMenu.locator('a');
-        expect(await menuItems.allInnerTexts()).toEqual(['ALL ITEMS','ABOUT','LOGOUT','RESET APP STATE']);
+        expect(await menuItems.allInnerTexts()).toEqual([
+            'ALL ITEMS',
+            'ABOUT',
+            'LOGOUT',
+            'RESET APP STATE',
+        ]);
     });
 });

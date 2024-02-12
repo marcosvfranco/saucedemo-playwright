@@ -1,18 +1,17 @@
-{   
+{
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 2019
     },
-    "plugins": [
-        "@typescript-eslint"
-    ],
+    "plugins": ["@typescript-eslint"],
     "env": {
         "es6": true
     },
-    "extends": ["plugin:playwright/playwright-test",
-                "eslint:recommended",
-                "plugin:@typescript-eslint/recommended"
-            ],
+    "extends": [
+        "plugin:playwright/playwright-test",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
     "rules": {
         "quotes": ["error", "single"],
         // we want to force semicolons
@@ -21,6 +20,6 @@
         "indent": ["error", 4],
         // we want to avoid extraneous spaces
         "no-multi-spaces": ["error"],
-        "no-multiple-empty-lines": ["error", {"max": 1}]
+        "no-multiple-empty-lines": ["error", { "max": 1 }]
     }
 }

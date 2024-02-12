@@ -21,7 +21,7 @@
     "url": "https://github.com/marcosvfranco/saucedemo-playwright/issues"
   },
   "devDependencies": {
-    "@playwright/test": "^1.30.0",
+    "@playwright/test": "^1.41.2",
     "@types/node": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
